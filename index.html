@@ -6,8 +6,6 @@
 <title>Music While Studying</title>
 
 <style>
-
-/* ================= BASE ================= */
 body{
 font-family:'Segoe UI', sans-serif;
 margin:0;
@@ -17,7 +15,6 @@ overflow:hidden;
 background:white;
 }
 
-/* ================= WHITE FLASH ================= */
 #whiteFlash{
 position:fixed;
 top:0;
@@ -31,7 +28,6 @@ pointer-events:none;
 transition:opacity 0.6s ease;
 }
 
-/* ================= INTRO ================= */
 #intro{
 position:fixed;
 top:0;
@@ -66,7 +62,6 @@ transform:translateX(-100%);
 transform:translateX(100%);
 }
 
-/* HEADER ZOOM */
 #zoomHeader{
 position:absolute;
 top:50%;
@@ -85,7 +80,6 @@ opacity:1;
 transform:translate(-50%,-50%) scale(1.1);
 }
 
-/* START BUTTON */
 #startBtn{
 position:absolute;
 top:50%;
@@ -100,7 +94,6 @@ background:white;
 font-weight:600;
 }
 
-/* ================= MAIN ================= */
 #main{
 opacity:0;
 transition:opacity 1s ease;
@@ -108,7 +101,6 @@ background:url("bg3.jpg") center/cover no-repeat;
 position:relative;
 }
 
-/* smoke overlay */
 #main::before{
 content:"";
 position:fixed;
@@ -120,7 +112,6 @@ background:rgba(0,0,0,0.25);
 z-index:-1;
 }
 
-/* ================= HEADER ================= */
 header{
 background:linear-gradient(90deg,#3a3a3a,#1f1f1f);
 color:white;
@@ -128,7 +119,6 @@ padding:40px;
 text-align:center;
 }
 
-/* ================= SECTIONS ================= */
 .section{
 display:flex;
 align-items:center;
@@ -137,7 +127,6 @@ padding:50px;
 gap:60px;
 }
 
-/* ================= CARD ================= */
 .card{
 background:white;
 width:40%;
@@ -151,7 +140,6 @@ align-items:center;
 text-align:center;
 }
 
-/* ================= VINYL ================= */
 .vinyl-wrapper{
 display:flex;
 flex-direction:column;
@@ -160,31 +148,18 @@ justify-content:center;
 width:40%;
 }
 
-/* ================= VINYL IMAGE ================= */
 .spin-img{
 width:260px;
 height:260px;
 object-fit:cover;
 border-radius:50%;
-transition:transform 0.35s ease, box-shadow 0.35s ease;
-will-change:transform;
+transition:transform 0.3s ease;
 }
 
-/* CLEAN SPIN (NO CONFLICTS) */
-@keyframes spin{
-0%{transform:rotate(0deg);}
-100%{transform:rotate(360deg);}
-}
-
-/* hover effect */
 .spin-img:hover{
-transform:scale(1.2);
-box-shadow:0 0 30px rgba(255,255,255,0.75);
-animation:spin 1s linear infinite;
-z-index:5;
+transform:scale(1.08);
 }
 
-/* ================= LABEL ================= */
 .vinyl-label{
 margin-top:10px;
 font-size:14px;
@@ -195,37 +170,13 @@ border-radius:10px;
 letter-spacing:1px;
 }
 
-/* ================= QUOTES ================= */
 .quote{
-background:linear-gradient(90deg,#56ccf2,#2f80ed);
-color:white;
+background:rgba(0,0,0,0.08);
+color:#222;
 padding:15px;
 border-radius:12px;
 margin:15px 0;
-}
-/* ================= SMOKE PARTICLES ================= */
-.smoke{
-position:fixed;
-width:120px;
-height:120px;
-background:radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
-border-radius:50%;
-pointer-events:none;
-z-index:2;
-filter:blur(6px);
-animation:floatSmoke linear infinite;
-}
-
-@keyframes floatSmoke{
-0%{
-transform:translateY(100vh) translateX(0) scale(0.8);
-opacity:0;
-}
-10%{opacity:0.35;}
-100%{
-transform:translateY(-20vh) translateX(40px) scale(1.4);
-opacity:0;
-}
+border:1px solid rgba(0,0,0,0.12);
 }
 </style>
 </head>
@@ -236,7 +187,6 @@ opacity:0;
 
 <!-- INTRO -->
 <div id="intro">
-
 <div class="panel left"></div>
 <div class="panel right"></div>
 
@@ -246,7 +196,6 @@ opacity:0;
 </div>
 
 <button id="startBtn">GET STARTED</button>
-
 </div>
 
 <!-- MAIN -->
@@ -255,63 +204,111 @@ opacity:0;
 <header>
 <h1>How Does Listening to Music While Studying Affect Retention?</h1>
 <p>Keya Patel | Multimodal Research Project</p>
-
 <p style="margin-top:10px; font-size:14px; opacity:0.85;">
 (hover over the vinyls to hear each audio track)
 </p>
 </header>
 
-<!-- SECTIONS -->
+<!-- LOFI -->
 <div class="section">
-<h2>Introduction</h2>
+<div class="card">
+<h2>INTRODUCTION</h2>
 <p>
-Many students choose to listen to music while studying as a way to improve focus, reduce stress, and create a more engaging environment. According to Goltz and Sadakata (2021), students often use music intentionally as a cognitive tool, selecting specific genres to help regulate attention and productivity. However, the effectiveness of this strategy is not universal. While some learners report increased concentration, others experience distraction depending on the type of music and the task being performed. This raises an important question: does listening to music actually improve the ability to retain information, or does it interfere with learning?
+The Lofi vinyl is calm, repetitive, and commonly associated with studying environments. Many students use music while studying as a way to improve focus, reduce stress, and make long study sessions feel personalized. According to Goltz and Sadakata (2021), students often intentionally select music based on the cognitive demands of the task they are working on, treating music as a tool to regulate attention and productivity. However, the impact of this strategy is not consistent across individuals or situations. While some learners report improved concentration when listening to background music, others experience reduced focus, especially when the sound becomes complex or distracting. 
 </p>
-<div class="quote">“Students use music to optimize cognitive performance.” (Goltz & Sadakata, 2021)</div>
+<div class="quote">“Students use music to optimize cognitive performance” (Goltz & Sadakata, 2021).</div>
+</div>
+
 <div class="vinyl-wrapper">
 <img src="1-removebg-preview.png" class="spin-img" data-sound="lofi">
 <div class="vinyl-label">Lofi</div>
 </div>
 </div>
 
+<!-- CLASSICAL -->
 <div class="section">
 <div class="vinyl-wrapper">
 <img src="2-removebg-preview.png" class="spin-img" data-sound="classical">
 <div class="vinyl-label">Classical</div>
 </div>
-<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+
+<div class="card">
+<h2>INSTRUMENTAL VS. HIGH-INTENSITY SOUND</h2>
+<p>
+Classical music is often considered the most stable of these genres. Its constant patterns, slow pacing, and lack of loud music creates an environment that supports concentration. Because it does not contain words or it allows the brain to maintain focus on academic tasks without significant disruption.
+In contrast, EDM and metal introduce a much higher level of stimulation. These genres are characterized by strong beats, fast tempo, and intense layering. Even without lyrics, this level of intensity can make the listening experience engaging but also more distracting. Serpil (2015) suggests that when external stimulation becomes too strong, it can negatively affect academic performance by reducing the ability to sustain deep focus and retain information.
+This contrast shows that the absence of lyrics alone does not determine whether music is helpful for studying. Instead, the structure and intensity of sound play a large role in how effectively the brain can maintain attention. While classical music may support a calm environment, EDM and metal can push the brain into a stimulated state that may not be ideal for learning tasks requiring concentration.
+</p>
+<div class="quote">“Music with lyrics competes for cognitive resources during cognitive tasks” (Gonzalez & Aiello, 2019).</div>
+</div>
 </div>
 
+<!-- EDM -->
 <div class="section">
-<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+
+<div class="card">
+<h2>Header</h2>
+<p>
+Insert Text here.
+</p>
+<div class="quote">Insert quote text</div>
+</div>
+
 <div class="vinyl-wrapper">
 <img src="3-removebg-preview.png" class="spin-img" data-sound="edm">
 <div class="vinyl-label">EDM</div>
 </div>
+
 </div>
 
+<!-- POP -->
 <div class="section">
+
 <div class="vinyl-wrapper">
 <img src="4-removebg-preview.png" class="spin-img" data-sound="pop">
 <div class="vinyl-label">Pop</div>
 </div>
-<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+
+<div class="card">
+<h2>Header</h2>
+<p>
+Insert Text
+</p>
+<div class="quote">Insert quote text</div>
 </div>
 
+</div><!-- RAP -->
 <div class="section">
-<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+
+<div class="card">
+<h2>Header</h2>
+<p>
+Insert Text
+</p>
+<div class="quote">Insert quote text</div>
+</div>
+
 <div class="vinyl-wrapper">
 <img src="5-removebg-preview.png" class="spin-img" data-sound="rap">
 <div class="vinyl-label">Rap</div>
 </div>
+
 </div>
 
+<!-- METAL -->
 <div class="section">
+
 <div class="vinyl-wrapper">
 <img src="6-removebg-preview.png" class="spin-img" data-sound="metal">
 <div class="vinyl-label">Metal</div>
 </div>
-<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+
+<div class="card">
+<h2>Header</h2>
+<p>
+Insert Text
+</p>
+<div class="quote">Insert quote text</div>
 </div>
 
 </div>
@@ -338,65 +335,44 @@ btn.style.display = "none";
 
 intro.classList.add("showHeader");
 
-setTimeout(()=>intro.classList.add("active"),400);
+setTimeout(() => {
+intro.classList.add("active");
+}, 400);
 
-setTimeout(()=>flash.style.opacity="1",1200);
+setTimeout(() => {
+flash.style.opacity = "1";
+}, 1200);
 
-setTimeout(()=>{
-flash.style.opacity="0";
-intro.style.display="none";
-main.style.opacity="1";
-document.body.style.overflow="auto";
-},1800);
+setTimeout(() => {
+flash.style.opacity = "0";
+intro.style.display = "none";
+main.style.opacity = "1";
+document.body.style.overflow = "auto";
+}, 1800);
 });
 
-/* AUDIO */
-document.querySelectorAll(".spin-img").forEach(img=>{
-const audio=document.getElementById(img.dataset.sound);
+document.querySelectorAll(".spin-img").forEach(img => {
+const audio = document.getElementById(img.dataset.sound);
 
-img.addEventListener("mouseenter",async()=>{
-if(!audioUnlocked)return;
+img.addEventListener("mouseenter", async () => {
+if (!audioUnlocked) return;
 
-document.querySelectorAll("audio").forEach(a=>{
-a.pause();a.currentTime=0;
+document.querySelectorAll("audio").forEach(a => {
+a.pause();
+a.currentTime = 0;
 });
 
-try{
-audio.currentTime=0;
+try {
+audio.currentTime = 0;
 await audio.play();
-}catch(e){}
+} catch(e){}
 });
 
-img.addEventListener("mouseleave",()=>{
+img.addEventListener("mouseleave", () => {
 audio.pause();
-audio.currentTime=0;
+audio.currentTime = 0;
 });
 });
-/* ================= SMOKE PARTICLES ================= */
-function createSmoke(){
-const smoke=document.createElement("div");
-smoke.classList.add("smoke");
-
-/* random position */
-smoke.style.left=Math.random()*100+"vw";
-
-/* random size */
-const size=80+Math.random()*120;
-smoke.style.width=size+"px";
-smoke.style.height=size+"px";
-
-/* random speed */
-const duration=6+Math.random()*8;
-smoke.style.animationDuration=duration+"s";
-
-document.body.appendChild(smoke);
-
-/* remove after animation */
-setTimeout(()=>smoke.remove(),duration*1000);
-}
-
-/* continuous smoke spawn */
-setInterval(createSmoke,600);
 </script>
 
 </body>
