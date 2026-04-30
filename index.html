@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music While Studying</title>
+
+<style>
+
+/* ================= BASE ================= */
+body{
+font-family:'Segoe UI', sans-serif;
+margin:0;
+padding:0;
+line-height:1.6;
+overflow:hidden;
+background:white;
+}
+
+/* ================= WHITE FLASH ================= */
+#whiteFlash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+z-index:9997;
+opacity:0;
+pointer-events:none;
+transition:opacity 0.6s ease;
+}
+
+/* ================= INTRO ================= */
+#intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+z-index:9999;
+}
+
+.panel{
+width:50%;
+height:100%;
+transition:transform 1.8s ease;
+background-size:cover;
+background-position:center;
+}
+
+.left{
+background:url("left.jpg") center/cover no-repeat;
+}
+
+.right{
+background:url("right.jpg") center/cover no-repeat;
+}
+
+#intro.active .left{
+transform:translateX(-100%);
+}
+
+#intro.active .right{
+transform:translateX(100%);
+}
+
+/* HEADER ZOOM */
+#zoomHeader{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0.7);
+text-align:center;
+z-index:9998;
+color:black;
+opacity:0;
+transition:all 1.4s ease;
+pointer-events:none;
+}
+
+#intro.showHeader #zoomHeader{
+opacity:1;
+transform:translate(-50%,-50%) scale(1.1);
+}
+
+/* START BUTTON */
+#startBtn{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+padding:15px 25px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+z-index:10000;
+background:white;
+font-weight:600;
+}
+
+/* ================= MAIN ================= */
+#main{
+opacity:0;
+transition:opacity 1s ease;
+background:url("bg3.jpg") center/cover no-repeat;
+position:relative;
+}
+
+/* smoke overlay */
+#main::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.25);
+z-index:-1;
+}
+
+/* ================= HEADER ================= */
+header{
+background:linear-gradient(90deg,#3a3a3a,#1f1f1f);
+color:white;
+padding:40px;
+text-align:center;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:50px;
+gap:60px;
+}
+
+/* ================= CARD ================= */
+.card{
+background:white;
+width:40%;
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.12);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+/* ================= VINYL ================= */
+.vinyl-wrapper{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+width:40%;
+}
+
+/* ================= VINYL IMAGE ================= */
+.spin-img{
+width:260px;
+height:260px;
+object-fit:cover;
+border-radius:50%;
+transition:transform 0.35s ease, box-shadow 0.35s ease;
+will-change:transform;
+}
+
+/* CLEAN SPIN (NO CONFLICTS) */
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* hover effect */
+.spin-img:hover{
+transform:scale(1.2);
+box-shadow:0 0 30px rgba(255,255,255,0.75);
+animation:spin 1s linear infinite;
+z-index:5;
+}
+
+/* ================= LABEL ================= */
+.vinyl-label{
+margin-top:10px;
+font-size:14px;
+color:white;
+background:rgba(0,0,0,0.6);
+padding:6px 12px;
+border-radius:10px;
+letter-spacing:1px;
+}
+
+/* ================= QUOTES ================= */
+.quote{
+background:linear-gradient(90deg,#56ccf2,#2f80ed);
+color:white;
+padding:15px;
+border-radius:12px;
+margin:15px 0;
+}
+/* ================= SMOKE PARTICLES ================= */
+.smoke{
+position:fixed;
+width:120px;
+height:120px;
+background:radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+border-radius:50%;
+pointer-events:none;
+z-index:2;
+filter:blur(6px);
+animation:floatSmoke linear infinite;
+}
+
+@keyframes floatSmoke{
+0%{
+transform:translateY(100vh) translateX(0) scale(0.8);
+opacity:0;
+}
+10%{opacity:0.35;}
+100%{
+transform:translateY(-20vh) translateX(40px) scale(1.4);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="whiteFlash"></div>
+
+<!-- INTRO -->
+<div id="intro">
+
+<div class="panel left"></div>
+<div class="panel right"></div>
+
+<div id="zoomHeader">
+<h1>How Does Listening to Music While Studying Affect Retention?</h1>
+<p>Keya Patel | Multimodal Research Project</p>
+</div>
+
+<button id="startBtn">GET STARTED</button>
+
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<header>
+<h1>How Does Listening to Music While Studying Affect Retention?</h1>
+<p>Keya Patel | Multimodal Research Project</p>
+
+<p style="margin-top:10px; font-size:14px; opacity:0.85;">
+(hover over the vinyls to hear each audio track)
+</p>
+</header>
+
+<!-- SECTIONS -->
+<div class="section">
+<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+<div class="vinyl-wrapper">
+<img src="1-removebg-preview.png" class="spin-img" data-sound="lofi">
+<div class="vinyl-label">Lofi</div>
+</div>
+</div>
+
+<div class="section">
+<div class="vinyl-wrapper">
+<img src="2-removebg-preview.png" class="spin-img" data-sound="classical">
+<div class="vinyl-label">Classical</div>
+</div>
+<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+</div>
+
+<div class="section">
+<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+<div class="vinyl-wrapper">
+<img src="3-removebg-preview.png" class="spin-img" data-sound="edm">
+<div class="vinyl-label">EDM</div>
+</div>
+</div>
+
+<div class="section">
+<div class="vinyl-wrapper">
+<img src="4-removebg-preview.png" class="spin-img" data-sound="pop">
+<div class="vinyl-label">Pop</div>
+</div>
+<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+</div>
+
+<div class="section">
+<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+<div class="vinyl-wrapper">
+<img src="5-removebg-preview.png" class="spin-img" data-sound="rap">
+<div class="vinyl-label">Rap</div>
+</div>
+</div>
+
+<div class="section">
+<div class="vinyl-wrapper">
+<img src="6-removebg-preview.png" class="spin-img" data-sound="metal">
+<div class="vinyl-label">Metal</div>
+</div>
+<div class="card"><h2>Header</h2><p>Insert Text</p><div class="quote">“insert quote”</div></div>
+</div>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="lofi" src="lofi.mp3"></audio>
+<audio id="classical" src="classical.mp3"></audio>
+<audio id="edm" src="edm.mp3"></audio>
+<audio id="pop" src="pop.mp3"></audio>
+<audio id="rap" src="rap.mp3"></audio>
+<audio id="metal" src="metal.mp3"></audio>
+
+<script>
+let audioUnlocked = false;
+
+const intro = document.getElementById("intro");
+const main = document.getElementById("main");
+const btn = document.getElementById("startBtn");
+const flash = document.getElementById("whiteFlash");
+
+btn.addEventListener("click", () => {
+audioUnlocked = true;
+btn.style.display = "none";
+
+intro.classList.add("showHeader");
+
+setTimeout(()=>intro.classList.add("active"),400);
+
+setTimeout(()=>flash.style.opacity="1",1200);
+
+setTimeout(()=>{
+flash.style.opacity="0";
+intro.style.display="none";
+main.style.opacity="1";
+document.body.style.overflow="auto";
+},1800);
+});
+
+/* AUDIO */
+document.querySelectorAll(".spin-img").forEach(img=>{
+const audio=document.getElementById(img.dataset.sound);
+
+img.addEventListener("mouseenter",async()=>{
+if(!audioUnlocked)return;
+
+document.querySelectorAll("audio").forEach(a=>{
+a.pause();a.currentTime=0;
+});
+
+try{
+audio.currentTime=0;
+await audio.play();
+}catch(e){}
+});
+
+img.addEventListener("mouseleave",()=>{
+audio.pause();
+audio.currentTime=0;
+});
+});
+/* ================= SMOKE PARTICLES ================= */
+function createSmoke(){
+const smoke=document.createElement("div");
+smoke.classList.add("smoke");
+
+/* random position */
+smoke.style.left=Math.random()*100+"vw";
+
+/* random size */
+const size=80+Math.random()*120;
+smoke.style.width=size+"px";
+smoke.style.height=size+"px";
+
+/* random speed */
+const duration=6+Math.random()*8;
+smoke.style.animationDuration=duration+"s";
+
+document.body.appendChild(smoke);
+
+/* remove after animation */
+setTimeout(()=>smoke.remove(),duration*1000);
+}
+
+/* continuous smoke spawn */
+setInterval(createSmoke,600);
+</script>
+
+</body>
+</html>
